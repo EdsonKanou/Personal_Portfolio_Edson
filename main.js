@@ -66,3 +66,30 @@ ScrollReveal().reveal(".portfolio__card", {
   
 });
 
+
+
+
+
+// <!-- typed js effect starts -->
+var typed = new Typed(".typing-text", {
+  strings: ["Data Engineer ", "Data Analyst", " Developpeur backend "  ],
+  loop: true,
+  typeSpeed: 50,
+  backSpeed: 25,
+  backDelay: 500,
+  fadeOut: false,        // Pour désactiver le fondu
+fadeOutClass: 'typed-fade-out',
+fadeOutDelay: 500,     // Délai avant le fondu
+});
+
+// <!-- typed js effect ends -->
+
+async function fetchData(type = "skills") {
+  let response
+  type === "skills" ?
+      response = await fetch("skills.json")
+      :
+      response = await fetch("./projects/projects.json")
+  const data = await response.json();
+  return data;
+}
