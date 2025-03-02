@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
-
 :root {
   --primary-color: #e9615e;
   --secondary-color: #ec9956;
+  --dark-color: #2C3E50; /* Nouvelle couleur sombre */
   --extra-light: #f3f4f6;
   --white: #ffffff;
-  --gradient-1: linear-gradient(to bottom right, #62393c, #181e41);
+  --gradient-1: linear-gradient(to bottom right, #62393c, var(--dark-color));
   --gradient-2: linear-gradient(
     to bottom,
     var(--primary-color),
@@ -13,6 +13,7 @@
   );
   --max-width: 1200px;
 }
+
 
 * {
   padding: 0;
@@ -274,119 +275,326 @@ nav {
   line-height: 2rem;
 }
 
+
+
+
+
+
+
+
+
+
+/* Base styles */
+.portfolio {
+  padding: 5rem 0;
+  background-color: linear-gradient(to bottom right, #62393c, #181e41);
+  color: white;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  position: relative;
+}
+
+.section__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-2);
+  margin: 0.5rem auto 2rem;
+  border-radius: 4px;
+}
+
+/* Introduction */
+.portfolio__intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.portfolio__description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: white;
+  text-align: center;
+}
+
+/* Stats section */
+.portfolio__stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.stat__card:hover {
+  transform: translateY(-10px);
+}
+
+.stat__number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat__label {
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.stat__icon {
+  color: var(--secondary-color);
+}
+
+/* Filters */
+.portfolio__filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter__btn {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter__btn:hover, .filter__btn.active {
+  background: var(--gradient-2);
+  color: var(--white);
+  border-color: transparent;
+}
+
+/* Project grid */
 .portfolio__grid {
   margin-top: 2rem;
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
 }
 
 .portfolio__card {
   overflow: hidden;
   border-radius: 1rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 280px;
 }
 
 .portfolio__card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.5s;
+  transition: transform 0.5s;
 }
-
-
-
-
-.portfolio__grid2 {
-  display: flex;
-  gap: 20px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.portfolio__card2 {
-  width: 150px; /* Augmenté pour plus de visibilité */
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
-  background: white;
-}
-
-.portfolio__card2 img {
-  width: 100%;  /* Remplit bien la carte */
-  height: 100%;
-  object-fit: contain; /* Évite que le logo soit coupé */
-  transition: transform 0.3s ease;
-}
-
-/* Effet au survol */
-.portfolio__card2:hover img {
-  transform: scale(1.2); /* Grossit légèrement le logo */
-}
-
-/* Ajout du message au survol */
-.portfolio__card2::after {
-  content: attr(data-message);
-  position: absolute;
-  bottom: 5px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 13px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-
-
-
-.portfolio__card2:hover::after {
-  opacity: 1;
-}
-
-
-
-
-
-
-
-
 
 .portfolio__card:hover img {
   transform: scale(1.1);
 }
 
-.portfolio__banner {
-  margin-top: 2rem;
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-  text-align: center;
-  background-image: var(--gradient-2);
-  border-radius: 1rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--gradient-1);
+  padding: 1.1rem;
+  color: var(--white);
+  transform: translateY(100px);
+  transition: transform 0.3s ease;
 }
 
-.portfolio__banner__card span {
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+.portfolio__card:hover .card__overlay {
+  transform: translateY(0);
 }
 
-.portfolio__banner__card h4 {
-  font-size: 1.2rem;
+.card__title {
+  font-size: 1.25rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.portfolio__banner__card p {
-  font-weight: 500;
+.card__description {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
 }
+
+.portfolio__card:hover .card__description {
+  opacity: 1;
+}
+
+.card__link {
+  display: inline-block;
+  background: var(--white);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.card__link:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+/* Technologies section */
+.technologies__title {
+  font-size: 1.75rem;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  color: #ffffff;
+}
+
+.portfolio__grid2 {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.portfolio__card2 {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.portfolio__card2 img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.portfolio__card2:hover {
+  transform: translateY(-10px);
+}
+
+.portfolio__card2:hover img {
+  transform: scale(1.2);
+}
+
+.portfolio__card2::after {
+  content: attr(data-message);
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-1);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.portfolio__card2:hover::after {
+  opacity: 1;
+  bottom: -30px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .stat__card {
+    min-width: 160px;
+  }
+  
+  .section__title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter__btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+  
+  .portfolio__stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .stat__card {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .contact__container {
   text-align: center;
@@ -525,104 +733,408 @@ nav {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .portfolio__container :is(.section__header, .section__description) {
-    text-align: left;
-    margin-inline-start: unset;
-  }
 
-  .portfolio__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 
-  .portfolio__banner {
-    grid-template-columns: repeat(3, 1fr);
-  }
+
+
+
+
+
+/* Parcours professionnel - Timeline style */
+
+/* Parcours professionnel - Timeline style */
+.parcours__container {
+  padding-bottom: 6rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
-
-
-
-/* skills section starts */
-.skills {
-  padding: 5rem 1rem;
-  background-image: var(--gradient-1);
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 3rem auto 0;
 }
 
-.skills .heading {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  color: var(--white);
-}
-
-.skills .heading span {
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 4px;
   background-image: var(--gradient-2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  top: 0;
+  bottom: 0;
+  left: 120px;
+  margin-left: -2px;
+  border-radius: 4px;
+  z-index: 0;
 }
 
-.skills .container {
-  max-width: var(--max-width);
-  margin: auto;
-  margin-top: 2rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+.timeline__item {
+  position: relative;
+  margin-bottom: 3rem;
+  display: flex;
 }
 
-.skills .container .row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1.8rem;
-}
-
-.skills .container .bar {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background-image: var(--gradient-2);
-  transition: 0.3s;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.skills .container .bar:hover {
-  transform: translateY(-5px);
-}
-
-.skills .container .bar .info {
+.timeline__date {
+  min-width: 120px;
+  text-align: right;
+  padding-right: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
 }
 
-.skills .container .bar .info img {
-  width: 48px;
-  height: 48px;
+.timeline__date .year {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
-.skills .container .bar .info span {
-  font-size: 1rem;
+.timeline__date .month {
+  font-size: 0.9rem;
+  color: var(--extra-light);
+  margin-bottom: 0.5rem;
+}
+
+.timeline__date .current {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-image: var(--gradient-2);
+  border-radius: 15px;
+  font-size: 0.7rem;
   font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.timeline__date .duration {
+  font-size: 0.8rem;
+  color: var(--extra-light);
+  font-style: italic;
+}
+
+.timeline__content {
+  position: relative;
+  margin-left: 2rem;
+  flex: 1;
+}
+
+.timeline__content::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: var(--gradient-2);
+  border-radius: 50%;
+  top: 0;
+  left: -31px;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(236, 153, 86, 0.5);
+}
+
+.timeline__card {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.timeline__card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline__logo {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-right: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.timeline__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.timeline__details {
+  flex: 1;
+}
+
+.timeline__details .company {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  background-image: var(--gradient-2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.timeline__details .position {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
   color: var(--white);
 }
 
-/* skills media queries */
-@media (width <= 768px) {
-  .skills .container .row {
-    grid-template-columns: repeat(3, 1fr);
+.timeline__details .description {
+  font-size: 0.95rem;
+  color: var(--extra-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.timeline__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline__tags span {
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Media Queries pour tablettes */
+@media (max-width: 768px) {
+  /* Nouvelle approche pour mobile */
+  .timeline {
+    margin-top: 2rem;
+  }
+  
+  .timeline::before {
+    display: none; /* Suppression de la ligne verticale sur mobile */
+  }
+  
+  .timeline__item {
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+  }
+  
+  .timeline__date {
+    min-width: auto;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .timeline__date .year {
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+  }
+  
+  .timeline__date .month {
+    font-size: 1rem;
+  }
+  
+  .timeline__date .current,
+  .timeline__date .duration {
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+  }
+  
+  .timeline__content {
+    margin-left: 0;
+  }
+  
+  .timeline__content::before {
+    display: none; /* Suppression des points sur la timeline */
+  }
+  
+  .timeline__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    transform: none;
+  }
+  
+  .timeline__logo {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    margin: 0 0 1.5rem 0;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .timeline__card:hover .timeline__logo {
+    transform: scale(1.1);
+  }
+  
+  .timeline__details .company {
+    font-size: 1.4rem;
+  }
+  
+  .timeline__details .position {
+    font-size: 1.15rem;
+  }
+  
+  .timeline__tags {
+    justify-content: center;
   }
 }
 
-@media (width <= 576px) {
-  .skills .container {
-    padding: 1rem;
+/* Media Queries pour smartphones */
+@media (max-width: 576px) {
+  .parcours__container {
+    padding-bottom: 4rem;
   }
   
-  .skills .container .row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  /* Approche façon carte pour mobile */
+  .timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .timeline__item {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 0;
+  }
+  
+  .timeline__card {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    transform: none; /* Pas de transformation par défaut */
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .timeline__card:hover {
+    transform: translateY(-8px); /* Transformation au survol */
+    background: rgba(255, 255, 255, 0.12);
+  }
+  
+  .timeline__logo {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background-color: white;
+    margin-bottom: 1.25rem;
+  }
+  
+  .timeline__logo img {
+    width: 70%;
+    height: 70%;
+    transition: transform 0.3s ease;
+  }
+  
+  .timeline__card:hover .timeline__logo img {
+    transform: scale(1.2);
+  }
+  
+  .timeline__details .company {
+    font-size: 1.2rem;
+  }
+  
+  .timeline__details .position {
+    font-size: 1rem;
+  }
+  
+  .timeline__details .description {
+    font-size: 0.9rem;
+    max-height: 4.8rem; /* Environ 3 lignes */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Animation pour afficher la description complète au clic */
+  .timeline__card.expanded .timeline__details .description {
+    max-height: none;
+    -webkit-line-clamp: unset;
+  }
+  
+  .timeline__tags {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .timeline__tags span {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  /* Style similaire à vos portfolio_card2 */
+  .timeline__date {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    z-index: 2;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .timeline__date .year,
+  .timeline__date .month {
+    font-size: 0.85rem;
+    color: white;
+    margin: 0;
+  }
+  
+  .timeline__date .current,
+  .timeline__date .duration {
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    margin: 0;
   }
 }
+
+/* JavaScript pour gérer l'affichage complet de la description sur mobile */
+@media (max-width: 576px) {
+  /* Cette partie sera activée par JavaScript, ajoutez le script suivant à votre page */
+  /* 
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.timeline__card');
+    
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('expanded');
+      });
+    });
+  });
+  */
+}
+
+
+/* Fin */
+
+
+
+
+
+
+
+
+
+
