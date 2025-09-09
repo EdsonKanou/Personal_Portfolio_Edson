@@ -39,8 +39,8 @@
           <h1>Edson <br /> <span class="typing-text"></span> </h1>
         </div>
         <p class="section__description">
-          Actuellement en stage de fin d’études chez BNP Paribas à Paris,, avec plus de deux ans d’expérience(Stage , cdi), 
-          je suis ouvert aux opportunités en CDI ou CDD. Je combine des compétences solides en ingénierie 
+          Actuellement en stage de fin d’études chez BNP Paribas à Paris, avec plus de deux ans d’expérience(Stage , cdi), 
+          je suis ouvert aux opportunités en CDI . Je combine des compétences solides en ingénierie 
           des données et en développement, au service de projets data ambitieux.
         </p>
         <div class="header__btn">
@@ -69,7 +69,7 @@
         <h2 class="section__header">À propos de moi</h2>
         <p class="section__description">
           Data Engineer et ingénieur travaux en informatique en génie logiciel, j’ai accumulé plus de deux ans d’expérience à travers des missions en consultation , CDD et stages, aussi bien en France (Paris) qu’au Cameroun.
-          J’ai mené à bien des projets significatifs, renforçant mes compétences sur des outils et technologies clés comme la stack ELK, Kafka, Python,power bi , les environnements cloud...
+          J’ai mené à bien des projets significatifs, renforçant mes compétences sur des outils et technologies clés comme la stack ELK, Kafka, Python, flask , fast  Api ,power bi , les environnements cloud...
           Certifié sur plusieurs de ces technologies, je maîtrise la gestion de données massives, de leur collecte à leur valorisation.
           Passionné par la transmission du savoir, je propose également des formations gratuites sur ma chaîne YouTube, afin de rendre la tech accessible à tous.
         </p>
@@ -79,12 +79,6 @@
         
       </div>
     </section>
-
-
-
-
-
-    
 
 
 
@@ -264,15 +258,27 @@
           </div>
 
           <div class="portfolio__card2" data-message="Fast API">
-            <img src="https://miro.medium.com/v2/resize:fit:1023/1*du7p50wS_fIsaC_lR18qsg.png" alt="Figma" />
+            <img src="https://miro.medium.com/v2/resize:fit:1023/1*du7p50wS_fIsaC_lR18qsg.png" alt="Fast API" />
           </div>
 
           <div class="portfolio__card2" data-message="Flask">
-            <img src="https://cdn.freebiesupply.com/logos/large/2x/flask-logo-png-transparent.png" alt="Figma" />
+            <img src="https://cdn.freebiesupply.com/logos/large/2x/flask-logo-png-transparent.png" alt="Flask" />
           </div>
 
           <div class="portfolio__card2" data-message="Jenkins">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-xxUGtIiKKym7sK95GyeRg7wWBHKO_p3aQw&s" alt="Figma" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-xxUGtIiKKym7sK95GyeRg7wWBHKO_p3aQw&s" alt="Jenkins" />
+          </div>
+
+          <div class="portfolio__card2" data-message="apache airflow">
+            <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/1/airflow-oqzgxxooekbjiyxdmx7z6.png/airflow-dj209lh3ezbv8120d2b92b.png?_a=DATAg1AAZAA0" alt="apache airflow" />
+          </div>
+
+          <div class="portfolio__card2" data-message="shell">
+            <img src="https://vardanrajora.com/wp-content/uploads/2023/09/shell_scripting-e1696068766593.png" alt="shell" />
+          </div>
+
+          <div class="portfolio__card2" data-message="Gitlab">
+            <img src="https://images.icon-icons.com/2415/PNG/512/gitlab_original_wordmark_logo_icon_146504.png" alt="Gitlab" />
           </div>
 
           <div class="portfolio__card2" data-message="dbt">
@@ -308,20 +314,70 @@
               </div>
               <div class="timeline__details">
                 <h3 class="company">BNP Paribas</h3>
-                <h4 class="position">Data Engineer </h4>
+                <h4 class="position">DataOps Engineer</h4>
+
                 <p class="description">
-                  Participation au développement d’une solution LAAS (Log as a Service) basée sur la stack ELK, avec prise en charge de la collecte, de l’ingestion et du monitoring des logs.
-                  Automatisation de processus grâce aux API Kibana, permettant la gestion efficace des environnements et la réduction des interventions manuelles.
+                    Contexte : Dans le cadre de la modernisation de l’architecture de monitoring au sein de la BNP, notre équipe a été chargée de migrer les objets sauvegardés (saved objects tels que les Data Views, Spaces, Dashboards...) depuis l’ancien cluster ElasticSearch MNG (Monitoring NG) vers le nouveau cluster LAAS (Log as a Service), centralisant tous les environnements (dev, qual, prod) sur un cluster unique.
                 </p>
+
+                <h5 class="mission-title">Mission 1 : Migration de Saved Objects entre deux clusters ElasticSearch</h5>
+                <ul class="mission-tasks">
+                    <li>Développement d’un backend en Flask (Python) pour automatiser l’export, la modification et l’import des saved objects via l’API Kibana.</li>
+                    <li>Mise en place d’endpoints permettant :
+                        <ul class="subtasks">
+                            <li>L’extraction des saved objects depuis MNG.</li>
+                            <li>La modification (optionnelle) des objets par les utilisateurs.</li>
+                            <li>L’import et la vérification dans le cluster LAAS.</li>
+                        </ul>
+                    </li>
+                    <li>Implémentation de plusieurs vérifications automatiques :
+                        <ul class="subtasks">
+                            <li>Existence et/ou création des Spaces dans le cluster cible.</li>
+                            <li>Existence et/ou création des Data Views nécessaires.</li>
+                        </ul>
+                    </li>
+                    <li>Création de dashboards Kibana et monitoring en temps réel.</li>
+                    <li>Conception et développement d’une interface utilisateur en React, intégrée au portail interne LAAS, permettant d’orchestrer toute la migration de manière visuelle et interactive.</li>
+                    <li>Documenter les incidents, les demandes ou les développements sur Confluence. Enrichissement et traitement des données pour la supervision des logs. Refactoring ponctuel de la création des dashboards Kibana pour des clients (BNP CIB, …).</li>
+                </ul>
+
+                <br>
+
+                <h5 class="mission-title">Mission 2 : Script Automatisation du reporting des Data Views obsolètes</h5>
+                <p class="mission-context">
+                    Contexte : Afin de maintenir un environnement Kibana propre et performant, un besoin de nettoyage automatisé des Data Views obsolètes a été identifié. L’objectif est de supprimer régulièrement (chaque semaine) les Data Views ne contenant plus de données, tout en notifiant les équipes concernées.
+                </p>
+                <ul class="mission-tasks">
+                    <li>Développement d’un script Python permettant :
+                        <ul class="subtasks">
+                            <li>De scanner automatiquement les Data Views présents dans Kibana via l’API Kibana.</li>
+                            <li>D’identifier ceux ne contenant plus de données.</li>
+                            <li>De vérifier l’existence d’une version historique avant toute suppression.</li>
+                            <li>D’envoyer un rapport par email aux équipes responsables (Data Owners) pour validation ou information.</li>
+                        </ul>
+                    </li>
+                    <li>Mise en place d’une exécution hebdomadaire via Rundeck, assurant l’automatisation complète du processus.</li>
+                </ul>
                 <div class="timeline__tags">
-                  <span>Python</span>
-                  <span>Elasticsearch</span>
-                  <span>Logstash</span>
-                  <span>Kibana</span>
-                  <span>Ansible</span>
-                  <span>kafka</span>
-                  <span>Automation</span>
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>Elasticsearch</span>
+                    <span>Kibana</span>
+                    <span>Kibana API</span>
+                    <span>GitLab</span>
+                    <span>Confluence</span>
+                    <span>Linux</span>
+                    <span>Bastion</span>
+                    <span>Shell</span>
+                    <span>ELK</span>
+                    <span>Kafka</span>
+                    <span>Rundeck</span>
+                    <span>SMTP</span>
+                    <span>Automation</span>
+                    <span>Ansible</span>
                 </div>
+
+          
               </div>
             </div>
           </div>
@@ -339,8 +395,8 @@
         <div class="timeline__item">
           <div class="timeline__date">
             <span class="year">2025</span>
-            <span class="month">janvier</span>
-            <span class="duration">En cours</span>
+            <span class="month">Decembre</span>
+            <span class="duration">7 Mois</span>
           </div>
           <div class="timeline__content">
             <div class="timeline__card">
@@ -352,6 +408,24 @@
                 <h4 class="position">Professeur d'informatique</h4>
                 <p class="description">Formateur en Python, Sql, Exel ,IA, Language c ...</p>
                 <div class="timeline__tags">
+                  <p class="description">
+                  Mission : Enseignement dispensé à un public varié composé principalement d’étudiants en difficulté et de personnes en reconversion professionnelle, dans le cadre de formations individuelles ou en petits groupes.
+                  </p>
+
+                  <ul class="mission-tasks">
+                      <li>Conception et animation de modules de formation adaptés au niveau des apprenants.</li>
+                      <li>Transmission des compétences fondamentales en :</li>
+                      <ul class="skills-list">
+                          <li><strong>Python</strong> : bases de la programmation, scripts, logique algorithmique</li>
+                          <li><strong>SQL</strong> : manipulation de bases de données, requêtes simples à avancées</li>
+                          <li><strong>Excel</strong> : formules, tableaux croisés dynamiques, automatisation</li>
+                          <li><strong>Power BI</strong> : création de dashboards interactifs, data visualisation</li>
+                          <li><strong>Langage C</strong> : introduction à la programmation procédurale</li>
+                      </ul>
+                      <li>Suivi pédagogique personnalisé, soutien technique et accompagnement à la montée en compétence.</li>
+                      <li>Évaluation des acquis et adaptation des contenus selon les besoins.</li>
+                  </ul>
+                      
                   <span>Python</span>
                   <span>Sql</span>
                   <span>IA</span>
@@ -385,14 +459,36 @@
               <div class="timeline__details">
                 <h3 class="company">IAI</h3>
                 <h4 class="position">Consultant</h4>
-                <p class="description">Création d'une Application intelligente Web pour la gestion de bases de données via langage naturel.
-                  Formateur en Python, Langage C, Langage C++ et Structure de données.</p>
-                <div class="timeline__tags">
+                <p class="description">
+    Mission : Création d’une application web intelligente pour la gestion de bases de données via langage naturel (FastAPI, IA).</p>
+
+                <ul class="mission-tasks">
+                    <li>Création d’une application web intelligente pour la gestion de bases de données via langage naturel (FastAPI, IA).</li>
+                    <li>Utilisation de FastAPI et intégration d’IA pour la compréhension et l’exécution de requêtes.</li>
+                    <li>Intégration d’un moteur IA/NLP pour interpréter les requêtes utilisateur.</li>
+                    <li>Pipeline ETL :
+                        <ul class="subtasks">
+                            <li>Ingestion des données avec Flume/Kafka.</li>
+                            <li>Transformation des données avec Spark.</li>
+                            <li>Stockage des données dans Cassandra.</li>
+                            <li>Visualisation des données via Power BI/Kibana.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+          <div class="timeline__tags">
                   <span>fast Api</span>
+                  <span>Python</span>
+                  <span>SQL</span>
+                  <span>Windows</span>
+                  <span>Kafka</span>
+                  <span>Flume</span>
+                  <span>Spark</span>
+                  <span>Cassandra</span>
+                  <span>Power BI</span>
                   <span>IA</span>
-                  <span>Language c</span>
-                  <span>Algorithme</span>
-                  <span>Structure de donnees </span>    
+                  <span>Language c</span>  
                 </div>
               </div>
             </div>
