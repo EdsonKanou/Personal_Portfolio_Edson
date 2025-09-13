@@ -678,7 +678,7 @@ nav {
   }
 
   .header__content .section__description {
-    text-align: left;
+    text-align: justify;
     margin-inline-start: unset;
   }
 
@@ -689,7 +689,7 @@ nav {
 
   .about__content,
   .about__content :is(.section__header, .section__description) {
-    text-align: left;
+    text-align: justify;
   }
 
   .service__grid {
