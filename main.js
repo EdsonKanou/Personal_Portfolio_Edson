@@ -72,7 +72,7 @@ ScrollReveal().reveal(".portfolio__card", {
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-  strings: ["Data Ops Engineer" ,"Data Engineer ", "Data Analyst"],
+  strings: ["Développeur python" ,"Data Engineer ", "Data Analyst"],
   loop: true,
   typeSpeed: 50,
   backSpeed: 25,
